@@ -313,7 +313,12 @@ static int hyundai_community_fwd_hook(int bus_num, CAN_FIFOMailBox_TypeDef *to_f
       }
     }
     if ((bus_num == 1) && hyundai_community_mdps_harness_present) {
-        bus_fwd = 20;
+      if (addr != 593) {
+         bus_fwd = 20;
+      }
+      else {
+         bus_fwd = 0;
+      }
     }
     if ((bus_num == 2) && (addr != 832) && (addr != 1157)) {
       if ((addr != 1056) && (addr != 1057) && (addr != 905) && (addr != 1290)) {
